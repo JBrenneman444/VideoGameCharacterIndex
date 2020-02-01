@@ -1,0 +1,27 @@
+* {
+    border: 1px solid goldenrod;
+}
+body {
+    background: black;
+    color: ivory;
+}
+
+.input-container {
+    margin-top: 50px;
+    text-align: center;
+    color: ivory;
+}
+
+#characterInput {
+    background: rgb(44, 44, 44);
+    color: ivory;
+}
+
+#characterSubmit {
+    background: rgb(119, 119, 119);
+    color: ivory;
+}
+
+.testAJAX {
+    text-align: center;
+}
