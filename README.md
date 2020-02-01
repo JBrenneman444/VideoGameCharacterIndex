@@ -14,6 +14,12 @@ My API key: 8f5e4fe50eb930447615648aa359bbc0ab041539
 https://www.giantbomb.com/api/game/3030-4725/?api_key=  
 https://www.giantbomb.com/api/game/3030-4725/?api_key=8f5e4fe50eb930447615648aa359bbc0ab041539
 
+## Struggles
+* First, did not realize it was an XML file, rather than a JSON.
+* Jay Glickman helped identiy a solution for getting around CORS error.
+* Could not get even a simple console log to come back.
+* Then, did not realize I could command it to come back in JSON form, if I wished.
+
 ## Technologies Used
 To be completed.
 
