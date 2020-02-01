@@ -24,7 +24,8 @@ https://www.giantbomb.com/api/game/3030-4725/?api_key=8f5e4fe50eb930447615648aa3
 To be completed.
 
 ## Approach Taken
-To be completed.
+* First, did a rough wireframe of the VISUAL side of my app.
+* Then, tried to test out initial connection of AJAX data and HTML.
 
 ## Unresolved Problems
 To be completed.
