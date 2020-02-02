@@ -11,7 +11,7 @@ $(()=>{
             type: "GET",
             dataType: "JSON",
             data: {
-            "$limit" : 1
+            "$limit" : 5
             }
 
         }).then(
@@ -35,25 +35,53 @@ $(()=>{
 
                 var objectsArray = data.results.objects
                 for (i=0;i<objectsArray.length;i++) {
-                    if (i=0) {
-                        debugger;
+                    if (i == 0) {
                         // grab the text
                         var objectsLabel = $('#objects').html()
                         // add the text
                         $('#objects').html('<b>' + objectsLabel + '</b>' + data.results.objects[i].name)
-                    } else {
+                    } else if (i > 0) {
                         // grab the text
                         var objectsLabel = $('#objects').html()
                         // add the text
-                        $('#objects').html(objectsLabel + data.results.objects[i].name)
+                        $('#objects').html(objectsLabel + ", " + data.results.objects[i].name)
+                    }
+                }
+
+                var friendsArray = data.results.friends
+                for (i=0;i<friendsArray.length;i++) {
+                    if (i == 0) {
+                        // grab the text
+                        var friendsLabel = $('#friends').html()
+                        // add the text
+                        $('#friends').html('<b>' + friendsLabel + '</b>' + data.results.friends[i].name)
+                    } else if (i > 0) {
+                        // grab the text
+                        var friendsLabel = $('#friends').html()
+                        // add the text
+                        $('#friends').html(friendsLabel + ", " + data.results.friends[i].name)
+                    }
+                }
+
+                var enemiesArray = data.results.enemies
+                for (i=0;i<enemiesArray.length;i++) {
+                    if (i == 0) {
+                        // grab the text
+                        var enemiesLabel = $('#enemies').html()
+                        // add the text
+                        $('#enemies').html('<b>' + enemiesLabel + '</b>' + data.results.enemies[i].name)
+                    } else if (i > 0) {
+                        // grab the text
+                        var enemiesLabel = $('#enemies').html()
+                        // add the text
+                        $('#enemies').html(enemiesLabel + ", " + data.results.enemies[i].name)
                     }
                 }
 
                 // var friendsLabel = $('#friends').text()
                 // $('#friends').html('<b>' + friendsLabel + '</b>' + data.results.aliases)
                 
-                //         <li id="objects"><b>Related Objects</b>: </li>
-                //         <li id="friends"><b>Friends</b>: </li>
+                
                 //         <li id="enemies"><b>Enemies</b>: </li>
                 //         <li id="summary"><b>Summary</b>: </li>
 
@@ -69,33 +97,6 @@ $(()=>{
 
     
     })
-
-
-//////////////////////////////////////////////////////////////////////
-// XML method
-
-// $('#characterSubmit').on('click', (event)=>{
-
-//     $.ajax({
-//         type: "GET",
-//         url: "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/character/3005-10/?api_key=8f5e4fe50eb930447615648aa359bbc0ab041539",
-//         dataType: "xml",
-//         success: xmlParser
-//        });
-        
-//     function xmlParser(xml) {
-        
-//     var aliases = $(xml).find("aliases").text()
-    
-//         console.log(aliases)
-    
-//     }
-    
-// })
-
-
-
-
 
 // CODE to CONSIDER for APPENDING to website:
 

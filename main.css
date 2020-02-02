@@ -81,7 +81,10 @@ li {
     margin: 20px 20px 20px 5px;
     text-align: left;
     color: rgb(226, 226, 226);
-}
+    overflow:scroll;
+    overflow: scroll;
+    overflow-x: hidden;
+    }
 
 #characterInput {
     background: rgb(44, 44, 44);
@@ -103,4 +106,13 @@ li {
 #input-buttons {
     display: block;
     text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0, 89, 255);
 }
