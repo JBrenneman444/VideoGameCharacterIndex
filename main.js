@@ -5,7 +5,7 @@ $(()=>{
 
 
     $('#characterSubmit').on('click', (event)=>{
-
+        
         $.ajax({
             url:'https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/character/3005-10/?api_key=8f5e4fe50eb930447615648aa359bbc0ab041539&format=JSON',
             type: "GET",
@@ -16,14 +16,46 @@ $(()=>{
 
         }).then(
             (data)=>{
-
-                $('.testAJAX').html(data.results.aliases + "<br>")
-                
-                var wolverineIMG = data.results.image.screen_large_url
-                $('<img>').attr("src",wolverineIMG).appendTo(".testAJAX")
-
                 console.log(data)
+
+                $('#character-img').text("")
+                var characterImage = data.results.image.screen_large_url
+                $('#character-img').css(`background-image`,`url(${characterImage})`)
+                $('#character-img').css("background-size","contain")
+                $('#character-img').css("background-repeat","no-repeat")
+                $('#character-img').css("background-position","center")
+
+                $('#characterName').html(data.results.name)
+
+                var aliasLabel = $('#alias').text()
+                $('#alias').html('<b>' + aliasLabel + '</b>' + data.results.aliases)
+
+                var bdayLabel = $('#birthday').text()
+                $('#birthday').html('<b>' + bdayLabel + '</b>' + data.results.birthday)
+
+                var objectsArray = data.results.objects
+                for (i=0;i<objectsArray.length;i++) {
+                    if (i=0) {
+                        debugger;
+                        // grab the text
+                        var objectsLabel = $('#objects').html()
+                        // add the text
+                        $('#objects').html('<b>' + objectsLabel + '</b>' + data.results.objects[i].name)
+                    } else {
+                        // grab the text
+                        var objectsLabel = $('#objects').html()
+                        // add the text
+                        $('#objects').html(objectsLabel + data.results.objects[i].name)
+                    }
+                }
+
+                // var friendsLabel = $('#friends').text()
+                // $('#friends').html('<b>' + friendsLabel + '</b>' + data.results.aliases)
                 
+                //         <li id="objects"><b>Related Objects</b>: </li>
+                //         <li id="friends"><b>Friends</b>: </li>
+                //         <li id="enemies"><b>Enemies</b>: </li>
+                //         <li id="summary"><b>Summary</b>: </li>
 
                 // RESPONSE is the ONLY child of #document
                 // RESULTS is 6 in the RESPONSE ARRAY

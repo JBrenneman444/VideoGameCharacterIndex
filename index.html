@@ -9,61 +9,83 @@
     <script src="main.js"></script>
 </head>
 <body>
-    
-<div class="input-container">
-    SELECT YOUR CHARACTER<br>
-    <input type="text" id="characterInput" list="json-datalist" placeholder="Type in a character">
-    <button id="characterSubmit">GO</button>
 
-    <datalist id="json-datalist"></datalist>
-</div>
+    <div id="flex-container">
+        <div id="input-container">
+            <div id="select-character">
+                    SELECT YOUR CHARACTER
+            </div>
+            <div id="input-buttons"><input type="text" id="characterInput" list="json-datalist" placeholder=" Type in the name of a video game character">
+            <button id="characterSubmit">GO</button></div>
 
-<div class="testAJAX">
-    <!-- try putting DATA here -->
-</div>
+            <datalist id="json-datalist"></datalist>
+        </div>
 
-<!--
-<input type="text" id="characterInput" list="languages">    
-    
-<datalist id="languages">
-    <option value="HTML">
-    <option value="CSS">
-    <option value="JavaScript">
-    <option value="Java">
-    <option value="Ruby">
-    <option value="PHP">
-    <option value="Go">
-    <option value="Erlang">
-    <option value="Python">
-    <option value="C">
-    <option value="C#">
-    <option value="C++">
-    <option value="HTML">
-    <option value="CSS">
-    <option value="JavaScript">
-    <option value="Java">
-    <option value="Ruby">
-    <option value="PHP">
-    <option value="Go">
-    <option value="Erlang">
-    <option value="Python">
-    <option value="C">
-    <option value="C#">
-    <option value="C++">
-    <option value="HTML">
-    <option value="CSS">
-    <option value="JavaScript">
-    <option value="Java">
-    <option value="Ruby">
-    <option value="PHP">
-    <option value="Go">
-    <option value="Erlang">
-    <option value="Python">
-    <option value="C">
-    <option value="C#">
-    <option value="C++">
+        <div id="character-display">
+            <div id="character-bg">
+                <div id="character-img">IMAGE</div>
+                <div id="character-info">
+                    <h1 id="characterName">NAME</h1>
+                    <ul>
+                        <li id="alias"><b>Alias</b>: </li>
+                        <li id="birthday"><b>Birthday</b>: </li>
+                        <li id="objects"><b>Related Objects</b>: </li>
+                        <li id="friends"><b>Friends</b>: </li>
+                        <li id="enemies"><b>Enemies</b>: </li>
+                        <li id="summary"><b>Summary</b>: </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- try putting DATA here -->
+        </div>
 
-  </datalist> -->
+        <!--
+        <input type="text" id="characterInput" list="languages">    
+            
+        <datalist id="languages">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="Java">
+            <option value="Ruby">
+            <option value="PHP">
+            <option value="Go">
+            <option value="Erlang">
+            <option value="Python">
+            <option value="C">
+            <option value="C#">
+            <option value="C++">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="Java">
+            <option value="Ruby">
+            <option value="PHP">
+            <option value="Go">
+            <option value="Erlang">
+            <option value="Python">
+            <option value="C">
+            <option value="C#">
+            <option value="C++">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="Java">
+            <option value="Ruby">
+            <option value="PHP">
+            <option value="Go">
+            <option value="Erlang">
+            <option value="Python">
+            <option value="C">
+            <option value="C#">
+            <option value="C++">
 
+        </datalist> -->
+
+        <footer>Special thanks to GiantBomb.com for their API.</footer>
+
+        <!-- TODO: ADD LINK to GIANTBOMB -->
+
+    </div>
 </body>
 </html>
