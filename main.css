@@ -108,6 +108,14 @@ li {
     text-align: center;
 }
 
+#characterName {
+    color:transparent;
+}
+
+.information {
+    display:none;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     background: transparent;

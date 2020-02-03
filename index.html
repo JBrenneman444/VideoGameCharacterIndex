@@ -15,8 +15,12 @@
             <div id="select-character">
                     SELECT YOUR CHARACTER
             </div>
-            <div id="input-buttons"><input type="text" id="characterInput" list="json-datalist" placeholder=" Type in the name of a video game character">
-            <button id="characterSubmit">GO</button></div>
+            <div id="input-buttons">
+                <form action="">
+                    <input type="text" id="characterInput" list="json-datalist" placeholder=" Type in the name of a video game character" value="Wolverine">
+                    <button id="characterSubmit">GO</button>
+                </form>
+            </div>
 
             <datalist id="json-datalist"></datalist>
         </div>
@@ -25,14 +29,15 @@
             <div id="character-bg">
                 <div id="character-img">IMAGE</div>
                 <div id="character-info">
-                    <h1 id="characterName">NAME</h1>
-                    <ul>
-                        <li id="alias"><b>Alias</b>: </li>
-                        <li id="birthday"><b>Birthday</b>: </li>
-                        <li id="objects"><b>Related Objects</b>: </li>
-                        <li id="friends"><b>Friends</b>: </li>
-                        <li id="enemies"><b>Enemies</b>: </li>
-                        <li id="summary"><b>Summary</b>: </li>
+                    <h1 id="characterName">...</h1>
+                    <ul class="information">
+                        <li class="information" id="alias"><b>Alias</b>: </li>
+                        <li class="information" id="birthday"><b>Birthday</b>: </li>
+                        <li class="information" id="first"><b>First Game</b>: </li>
+                        <li class="information" id="objects"><b>Related Objects</b>: </li>
+                        <li class="information" id="friends"><b>Friends</b>: </li>
+                        <li class="information" id="enemies"><b>Enemies</b>: </li>
+                        <li class="information" id="description"><b>Description</b>: </li>
                     </ul>
                 </div>
             </div>
