@@ -17,7 +17,7 @@
             </div>
             <div id="input-buttons">
                 <form action="">
-                    <input type="text" id="characterInput" list="json-datalist" placeholder=" Type in the name of a video game character" value="Wolverine">
+                    <input type="text" id="characterInput" list="json-datalist" placeholder=" Type in the name of a video game character" value="Mario">
                     <button id="characterSubmit">GO</button>
                 </form>
             </div>
@@ -27,13 +27,13 @@
 
         <div id="character-display">
             <div id="character-bg">
-                <div id="character-img">IMAGE</div>
+                <div class="information" id="character-img"></div> <!-- TODO: Be able to click thru various images of character-->
                 <div id="character-info">
                     <h1 id="characterName">...</h1>
                     <ul class="information">
                         <li class="information" id="alias"><b>Alias</b>: </li>
                         <li class="information" id="birthday"><b>Birthday</b>: </li>
-                        <li class="information" id="first"><b>First Game</b>: </li>
+                        <li class="information" id="first"><b>First appeared in the game</b>: </li>
                         <li class="information" id="objects"><b>Related Objects</b>: </li>
                         <li class="information" id="friends"><b>Friends</b>: </li>
                         <li class="information" id="enemies"><b>Enemies</b>: </li>
@@ -87,7 +87,7 @@
 
         </datalist> -->
 
-        <footer>Special thanks to GiantBomb.com for their API.</footer>
+        <footer>Powered by <a href="https://www.giantbomb.com/api/" target="_blank">GiantBomb.com</a> API.</footer>
 
         <!-- TODO: ADD LINK to GIANTBOMB -->
 

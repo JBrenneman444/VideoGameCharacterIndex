@@ -4,20 +4,25 @@ $(()=>{
         // To filter by name: &filter=name:[NAME]
         // to format data by JSON or XML: &format=JSON
 
+    // focuses on text field, as soon as page loads
 
-        $('form').on('submit', (event)=>{
+    $("#characterInput").focus();
 
-        var charName = ""
+    $('form').on('submit', (event)=>{
 
-        $('.information').fadeIn(1000)
+        $('#character-bg').fadeIn(1000).css('display','flex')
+
+        $('.information').fadeIn(2000)
 
         var userInput = $('#characterInput').val()
         console.log("User typed: " + userInput)
 
+        // TODO: if CHARACTER NOT FOUND, add functionality that says "Character not found", etc.
+
         // clear fields
         $('#alias').html('<b>Alias</b>: <font color=grey>Loading...</font>')
         $('#birthday').html('<b>Birthday</b>: <font color=grey>Loading...</font>')
-        $('#first').html('<b>First Game</b>: <font color=grey>Loading...</font>')
+        $('#first').html('<b>First appeared in the game</b>: <font color=grey>Loading...</font>')
         $('#objects').html('<b>Related Objects</b>: <font color=grey>Loading...</font>')
         $('#friends').html('<b>Friends</b>: <font color=grey>Loading...</font>')
         $('#enemies').html('<b>Enemies</b>: <font color=grey>Loading...</font>')
@@ -38,28 +43,30 @@ $(()=>{
         }).then(
             (data)=>{
                 
-                // TODO: Loop through various names (if more than one match) and prefer EXACT MATCH
-                var exactMatch
-                var characterArray = data.results
-                    for (i=0;i<characterArray.length;i++) {
-                        if (userInput === characterArray[i].name) {
-                            // then use THESE RESULTS for rest of information
-
-                            break;
-                        } else {
-                            // display FIRST name
-                        }
-                    }
+                // PROBLEM: Sometimes search loads a non-EXACT MATCH (ex. "bLINKy" instead of "LINK")
+                    // TODO: Loop through various names (if more than one match) and prefer EXACT MATCH
+                    // TODO: might have to put ALL of code inside this IF STATEMENT
+                        var exactMatch
+                        var characterArray = data.results
+                            for (i=0;i<characterArray.length;i++) {
+                                if (userInput === characterArray[i].name) {
+                                    // then use THESE RESULTS for rest of information
+                                    exactMatch = characterArray[i]
+                                    break;
+                                } else {
+                                    // display FIRST name
+                                }
+                            }
 
                 // TODO: figure out how to make name transition smoother.
-                    // for some reason, it doesn't fade in properly within AJAX call
+                    // PROBLEM: for some reason, it doesn't fade in properly within AJAX call
                     // POTENTIAL SOLUTION: just have it fade in WHATEVER USER INPUT IS (even if faulty spelling)
                     
-                $('#characterName').html(data.results[0].name).css('color','ivory').fadeIn(1000)
+                $('#characterName').html(data.results[0].name).css('color','ivory').css('text-shadow','2px 2px 5px rgb(39, 115, 255)').fadeIn(1000)
 
                 $('#alias').html('<b>Alias</b>: ') // TODO: see if can figure out way to identify several aliases
                 $('#birthday').html('<b>Birthday</b>: ')
-                $('#first').html('<b>First Game</b>: ')
+                $('#first').html('<b>First appeared in the game</b>: ')
                 $('#description').html('<b>Description</b>: ')
 
                 var characterIDNumber = data.results[0].guid
@@ -72,22 +79,35 @@ $(()=>{
                 $('#character-img').css("background-position","center")
 
 
-                /////////////////////////////////////////////////////////////
-                // TODO: If search returns NULL, make it appear as "Unknown"
-                /////////////////////////////////////////////////////////////
-
                 var aliasLabel = $('#alias').text()
-                $('#alias').html('<b>' + aliasLabel + '</b>' + data.results[0].aliases)
+                if (data.results[0].aliases !== null) {
+                    $('#alias').html('<b>' + aliasLabel + '</b>' + data.results[0].aliases)
+                } else {
+                    $('#alias').html('<b>' + aliasLabel + '</b> Unknown')
+                }
 
                 var bdayLabel = $('#birthday').text()
-                $('#birthday').html('<b>' + bdayLabel + '</b>' + data.results[0].birthday)
+                if (data.results[0].birthday !== null) {
+                    $('#birthday').html('<b>' + bdayLabel + '</b>' + data.results[0].birthday)
+                } else {
+                    $('#birthday').html('<b>' + bdayLabel + '</b> Unknown')
+                }
 
                 var firstLabel = $('#first').text()
-                $('#first').html('<b>' + firstLabel + '</b>' + data.results[0].first_appeared_in_game.name)
+                if (data.results[0].first_appeared_in_game.name !== null) {
+                    $('#first').html('<b>' + firstLabel + '</b>' + data.results[0].first_appeared_in_game.name)
+                } else {
+                    $('#first').html('<b>' + firstLabel + '</b> Unknown')
+                }
 
                 var descriptionLabel = $('#description').text()
-                $('#description').html('<b>' + descriptionLabel + '</b>' + data.results[0].deck)
+                if (data.results[0].deck !== null) {
+                    $('#description').html('<b>' + descriptionLabel + '</b>' + data.results[0].deck)
+                } else {
+                    $('#description').html('<b>' + descriptionLabel + '</b> Unknown')
+                }
 
+                console.log("1ST AJAX:")
                 console.log(data)
 
                 ///////////////////////////////////////
@@ -103,6 +123,7 @@ $(()=>{
                 }).then(
                     (data)=>{
                             
+                    console.log("2ND AJAX:")
                     console.log(data)
 
                     $('#objects').html('<b>Related Objects</b>: ')
@@ -168,6 +189,6 @@ $(()=>{
 
 
 
-            }) // end of FORM SUBMIT
+    }) // end of FORM SUBMIT
 
 })

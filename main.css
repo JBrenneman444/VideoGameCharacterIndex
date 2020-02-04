@@ -3,7 +3,12 @@ font-family:monospace;
 }
 
 body {
-    background: black;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#151516+0,000000+100 */
+    background: #151516; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #151516 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #151516 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #151516 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151516', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     color: ivory;
 }
 
@@ -33,6 +38,25 @@ li {
     font-size: large;
 }
 
+a:link {
+    color: rgb(0, 89, 255);
+}
+  
+/* visited link */
+a:visited {
+    color: rgb(0, 89, 255);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(49, 121, 255);
+}
+
+/* selected link */
+a:active {
+    color: rgb(0, 89, 255);
+}
+
 #flex-container {
     text-align: center;
 }
@@ -51,15 +75,15 @@ li {
 #character-display {
     display: flex;
     justify-content: space-around;
-        /* text-align: center; */
+    height: 73vh;
 }
 
 #character-bg {
-    display: flex;
+    display: none;
     justify-content: space-between;
+    color: rgb(0, 89, 255);
     align-items: center;
     width: 90%;
-    height: 75vh;
     background: rgb(17, 17, 17);
 }
 
@@ -77,7 +101,8 @@ li {
     display: inline-block;
     width: 60%;
     height: 90%;
-    background: rgb(0, 16, 26);
+    /* background: rgb(0, 16, 26); */
+    background: rgb(25, 25, 26);
     margin: 20px 20px 20px 5px;
     text-align: left;
     color: rgb(226, 226, 226);
@@ -97,10 +122,21 @@ li {
     color: ivory;
 }
 
+#characterSubmit:hover {
+    background: rgb(0, 89, 255);
+    color: ivory;
+}
+
+#characterSubmit:active {
+    background: rgb(0, 41, 117);
+    color: ivory;
+}
+
 #select-character {
     display: block;
     text-align: center;
     font-size:2.5vw;
+    text-shadow: -1px 0  rgb(0, 89, 255), 0 1px  rgb(0, 89, 255), 1px 0  rgb(0, 89, 255), 0 -1px  rgb(0, 89, 255);
 }
 
 #input-buttons {
