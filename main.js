@@ -20,13 +20,13 @@ $(()=>{
         // TODO: if CHARACTER NOT FOUND, add functionality that says "Character not found", etc.
 
         // clear fields
-        $('#alias').html('<b>Alias</b>: <font color=grey>Loading...</font>')
-        $('#birthday').html('<b>Birthday</b>: <font color=grey>Loading...</font>')
-        $('#first').html('<b>First appeared in the game</b>: <font color=grey>Loading...</font>')
-        $('#objects').html('<b>Related Objects</b>: <font color=grey>Loading...</font>')
-        $('#friends').html('<b>Friends</b>: <font color=grey>Loading...</font>')
-        $('#enemies').html('<b>Enemies</b>: <font color=grey>Loading...</font>')
-        $('#description').html('<b>Description</b>: <font color=grey>Loading...</font>')
+        $('#alias').html('<b>Alias</b>: <font color=grey>Searching...</font>')
+        $('#birthday').html('<b>Birthday</b>: <font color=grey>Searching...</font>')
+        $('#first').html('<b>First appeared in the game</b>: <font color=grey>Searching...</font>')
+        $('#objects').html('<b>Related Objects</b>: <font color=grey>Searching...</font>')
+        $('#friends').html('<b>Friends</b>: <font color=grey>Searching...</font>')
+        $('#enemies').html('<b>Enemies</b>: <font color=grey>Searching...</font>')
+        $('#description').html('<b>Description</b>: <font color=grey>Searching...</font>')
 
         event.preventDefault();
 
@@ -44,35 +44,25 @@ $(()=>{
             (data)=>{
                 
                 // PROBLEM: Sometimes search loads a non-EXACT MATCH (ex. "bLINKy" instead of "LINK")
-                    // TODO: Loop through various names (if more than one match) and prefer EXACT MATCH
-                    // TODO: might have to put ALL of code inside this IF STATEMENT
-                        var exactMatch
-                        var characterArray = data.results
-                            for (i=0;i<characterArray.length;i++) {
-                                if (userInput === characterArray[i].name) {
-                                    // then use THESE RESULTS for rest of information
-                                    exactMatch = characterArray[i]
-                                    break;
-                                } else {
-                                    // display FIRST name
-                                }
-                            }
+                    // Loop through various names (if more than one match) and filter by EXACT MATCH
+                    var exactCharacter = data.results.filter(searched => searched.name === userInput);
+                    console.log(exactCharacter)
 
                 // TODO: figure out how to make name transition smoother.
                     // PROBLEM: for some reason, it doesn't fade in properly within AJAX call
                     // POTENTIAL SOLUTION: just have it fade in WHATEVER USER INPUT IS (even if faulty spelling)
                     
-                $('#characterName').html(data.results[0].name).css('color','ivory').css('text-shadow','2px 2px 5px rgb(39, 115, 255)').fadeIn(1000)
+                $('#characterName').html(exactCharacter[0].name).css('color','ivory').css('text-shadow','2px 2px 5px rgb(39, 115, 255)').fadeIn(1000)
 
                 $('#alias').html('<b>Alias</b>: ') // TODO: see if can figure out way to identify several aliases
                 $('#birthday').html('<b>Birthday</b>: ')
                 $('#first').html('<b>First appeared in the game</b>: ')
                 $('#description').html('<b>Description</b>: ')
 
-                var characterIDNumber = data.results[0].guid
+                var characterIDNumber = exactCharacter[0].guid
 
                 $('#character-img').text("")
-                var characterImage = data.results[0].image.super_url
+                var characterImage = exactCharacter[0].image.super_url
                 $('#character-img').css(`background-image`,`url(${characterImage})`)
                 $('#character-img').css("background-size","contain")
                 $('#character-img').css("background-repeat","no-repeat")
@@ -80,29 +70,29 @@ $(()=>{
 
 
                 var aliasLabel = $('#alias').text()
-                if (data.results[0].aliases !== null) {
-                    $('#alias').html('<b>' + aliasLabel + '</b>' + data.results[0].aliases)
+                if (exactCharacter[0].aliases !== null) {
+                    $('#alias').html('<b>' + aliasLabel + '</b>' + exactCharacter[0].aliases)
                 } else {
                     $('#alias').html('<b>' + aliasLabel + '</b> Unknown')
                 }
 
                 var bdayLabel = $('#birthday').text()
-                if (data.results[0].birthday !== null) {
-                    $('#birthday').html('<b>' + bdayLabel + '</b>' + data.results[0].birthday)
+                if (exactCharacter[0].birthday !== null) {
+                    $('#birthday').html('<b>' + bdayLabel + '</b>' + exactCharacter[0].birthday)
                 } else {
                     $('#birthday').html('<b>' + bdayLabel + '</b> Unknown')
                 }
 
                 var firstLabel = $('#first').text()
-                if (data.results[0].first_appeared_in_game.name !== null) {
-                    $('#first').html('<b>' + firstLabel + '</b>' + data.results[0].first_appeared_in_game.name)
+                if (exactCharacter[0].first_appeared_in_game.name !== null) {
+                    $('#first').html('<b>' + firstLabel + '</b>' + exactCharacter[0].first_appeared_in_game.name)
                 } else {
                     $('#first').html('<b>' + firstLabel + '</b> Unknown')
                 }
 
                 var descriptionLabel = $('#description').text()
-                if (data.results[0].deck !== null) {
-                    $('#description').html('<b>' + descriptionLabel + '</b>' + data.results[0].deck)
+                if (exactCharacter[0].deck !== null) {
+                    $('#description').html('<b>' + descriptionLabel + '</b>' + exactCharacter[0].deck)
                 } else {
                     $('#description').html('<b>' + descriptionLabel + '</b> Unknown')
                 }
