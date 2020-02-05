@@ -5,11 +5,7 @@ font-family:monospace;
 
 body {
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#151516+0,000000+100 */
-    background: #151516; /* Old browsers */
-    background: -moz-linear-gradient(-45deg,  #151516 0%, #000000 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg,  #151516 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg,  #151516 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151516', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: black;
     color: ivory;
 }
 
@@ -35,9 +31,14 @@ ul {
 }
 
 li {
-    margin: 20px 0px;
+    margin: 10px 0px;
     display:block;
     font-size: large;
+}
+
+span {
+    color: rgb(61, 113, 208);
+    font-weight: bold;
 }
 
 a:link {
@@ -77,12 +78,12 @@ a:active {
 #character-display {
     display: flex;
     justify-content: space-around;
-    height: 74vh;
+    height: 70vh;
 }
 
 
 #character-bg {
-    display: none;
+    display: none; /* starts at NONE so it can load in */
     flex-direction: row; /* MAKE IT COLUMN for PC*/
     justify-content: space-between;
     color: rgb(0, 89, 255);
@@ -93,21 +94,21 @@ a:active {
 
 #character-img {
     display: inline-block;
-    width: 35%;
-    height: 90%;
+    width: 75%;
+    height: 100%;
     background: rgb(0, 0, 0);
-    margin: 20px 5px 20px 20px;
+    margin: 0px;
     line-height: 50vh;
     font-size:xx-large;
 }
 
 #character-info {
     display: inline-block;
-    width: 60%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     /* background: rgb(0, 16, 26); */
     background: rgb(25, 25, 26);
-    margin: 20px 20px 20px 5px;
+    margin: 0px;
     text-align: left;
     color: rgb(226, 226, 226);
     overflow:scroll;
@@ -169,7 +170,7 @@ a:active {
 /* iPads */
 @media (max-width:1025px){
     #character-display {
-        height: 70vh;
+        height: 72vh;
     }
 }
 
@@ -194,7 +195,7 @@ a:active {
     #character-display {
         display: flex;
         justify-content: space-around;
-        height: 83vh;
+        height: 81vh;
     }
     
     #character-bg {

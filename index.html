@@ -12,11 +12,10 @@
 
     <div id="flex-container">
         <div id="input-container">
-            <div id="select-character">
-The Gamerdex            </div>
+            <div id="select-character">The Gamerdex</div>
             <div id="input-buttons">
                 <form action="">
-                    <input type="text" id="characterInput" list="json-datalist" placeholder=" Enter the name of a video game character" value="">
+                    <input type="text" id="characterInput" list="json-datalist" autocomplete="off" placeholder=" Enter the name of a video game character" value="">
                     <button id="characterSubmit">GO</button>
                 </form>
             </div>
@@ -26,17 +25,22 @@ The Gamerdex            </div>
 
         <div id="character-display">
             <div id="character-bg">
-                <div class="information" id="character-img"></div> <!-- TODO: Be able to click thru various images of character-->
+                <div class="information" id="character-img">
+                    <!-- JQUERY will create/append new divs to character-img/create/append imgs -->
+                    <!--<div><img src="https://via.placeholder.com/300"></div>
+                        <div><img src="https://via.placeholder.com/300"></div>
+                        <div><img src="https://via.placeholder.com/300"></div>-->
+                </div>
                 <div id="character-info">
                     <h1 id="characterName">...</h1>
                     <ul class="information">
-                        <li class="information" id="alias"><b>Alias</b>: </li>
-                        <li class="information" id="birthday"><b>Birthday</b>: </li>
-                        <li class="information" id="first"><b>First appeared in the game</b>: </li>
-                        <li class="information" id="objects"><b>Related Objects</b>: </li>
-                        <li class="information" id="friends"><b>Friends</b>: </li>
-                        <li class="information" id="enemies"><b>Enemies</b>: </li>
-                        <li class="information" id="description"><b>Description</b>: </li>
+                        <li class="information" id="alias"><span>Alias</span>: </li>
+                        <li class="information" id="birthday"><span>Birthday</span>>: </li>
+                        <li class="information" id="first"><span>First appeared in the game</span>>: </li>
+                        <li class="information" id="objects"><span>Related Objects</span>>: </li>
+                        <li class="information" id="friends"><span>Friends</span>>: </li>
+                        <li class="information" id="enemies"><span>Enemies</span>>: </li>
+                        <li class="information" id="description"><span>Description</span>>: </li>
                     </ul>
                 </div>
             </div>
