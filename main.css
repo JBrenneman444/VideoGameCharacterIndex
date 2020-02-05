@@ -94,7 +94,6 @@ a:active {
     height: 100%;
     background: rgb(0, 0, 0);
     margin: 0px;
-    line-height: 50vh;
     font-size:xx-large;
 }
 
@@ -151,6 +150,10 @@ a:active {
 
 .information {
     display:none;
+}
+
+#character-img.information {
+    position:relative;
 }
 
 ::-webkit-scrollbar {
@@ -280,7 +283,7 @@ a:active {
     padding: 16px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 4vh;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
