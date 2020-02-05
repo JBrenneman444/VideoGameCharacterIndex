@@ -17,16 +17,18 @@ $(()=>{
 
             // results.image_tags[7].name --> if I want to pull during 2ndf AJAX
 
-            var characterImage1
-            var characterImage2
-            var characterImage3
-            var characterImage4
-            var characterImage5
-            var characterImage6
-            var characterImage7
-            var characterImage8
-            var characterImage9
-            var characterImage10
+            // TODO: Set up so user can choose Official Art, Fan Art, etc.
+
+    var characterImage1
+    var characterImage2
+    var characterImage3
+    var characterImage4
+    var characterImage5
+    var characterImage6
+    var characterImage7
+    var characterImage8
+    var characterImage9
+    var characterImage10
 
     // focuses on text field, as soon as page loads
     $("#characterInput").focus();
@@ -65,6 +67,8 @@ $(()=>{
             $('#character-bg').fadeIn(1000).css('display','flex')
 
             $('.information').fadeIn(2000)
+
+            $('#img-container').hide()
 
             var userInput = $('#characterInput').val()
             console.log("User typed: " + userInput)
@@ -216,7 +220,7 @@ $(()=>{
                             ///////////////////////////////////////
                             // THIRD AJAX CALL
                             $.ajax({ // third AJAX pulls from IMAGES resource
-                                url:`https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/images/${characterIDNumber}/?api_key=8f5e4fe50eb930447615648aa359bbc0ab041539&format=JSON&filter=image_tag:Official+Art&field_list=original_url`,
+                                url:`https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/images/${characterIDNumber}/?api_key=8f5e4fe50eb930447615648aa359bbc0ab041539&format=JSON&field_list=original_url`,
                                 type: "GET",
                                 dataType: "JSON",
                                 data: {
@@ -242,15 +246,15 @@ $(()=>{
                                 characterImage9 = characterImageData[8].original_url
                                 characterImage10 = characterImageData[9].original_url
                                 
-                                $('#character-img').css(`background-image`,`url(${characterImage1})`)
-                                $('#character-img').css("background-size","contain")
-                                $('#character-img').css("background-repeat","no-repeat")
-                                $('#character-img').css("background-position","center")
-
+                                slideIndex = 1;
                                 $('#image1').css(`background-image`,`url(${characterImage1})`)
                                 $('#image1').css("background-size","contain")
                                 $('#image1').css("background-repeat","no-repeat")
                                 $('#image1').css("background-position","center")
+                                showSlides(slideIndex);
+                                $('#img-container').show()
+
+
 
                                 $('#image2').css(`background-image`,`url(${characterImage2})`)
                                 $('#image2').css("background-size","contain")
@@ -261,6 +265,41 @@ $(()=>{
                                 $('#image3').css("background-size","contain")
                                 $('#image3').css("background-repeat","no-repeat")
                                 $('#image3').css("background-position","center")
+
+                                $('#image4').css(`background-image`,`url(${characterImage4})`)
+                                $('#image4').css("background-size","contain")
+                                $('#image4').css("background-repeat","no-repeat")
+                                $('#image4').css("background-position","center")
+
+                                $('#image5').css(`background-image`,`url(${characterImage5})`)
+                                $('#image5').css("background-size","contain")
+                                $('#image5').css("background-repeat","no-repeat")
+                                $('#image5').css("background-position","center")
+
+                                $('#image6').css(`background-image`,`url(${characterImage6})`)
+                                $('#image6').css("background-size","contain")
+                                $('#image6').css("background-repeat","no-repeat")
+                                $('#image6').css("background-position","center")
+
+                                $('#image7').css(`background-image`,`url(${characterImage7})`)
+                                $('#image7').css("background-size","contain")
+                                $('#image7').css("background-repeat","no-repeat")
+                                $('#image7').css("background-position","center")
+
+                                $('#image8').css(`background-image`,`url(${characterImage8})`)
+                                $('#image8').css("background-size","contain")
+                                $('#image8').css("background-repeat","no-repeat")
+                                $('#image8').css("background-position","center")
+
+                                $('#image9').css(`background-image`,`url(${characterImage9})`)
+                                $('#image9').css("background-size","contain")
+                                $('#image9').css("background-repeat","no-repeat")
+                                $('#image9').css("background-position","center")
+
+                                $('#image10').css(`background-image`,`url(${characterImage10})`)
+                                $('#image10').css("background-size","contain")
+                                $('#image10').css("background-repeat","no-repeat")
+                                $('#image10').css("background-position","center")
 
                                 // no idea why these arent working........
                                     // $('#image1').attr(`src`,`url(https://www.giantbomb.com/api/image/original/3028428-7282301757-Link_.png
@@ -296,7 +335,7 @@ $(()=>{
         
 
         } else {
-
+            // do NOTHING because User didn't enter a name
         }
 
     }) // end of FORM SUBMIT
