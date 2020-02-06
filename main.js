@@ -78,10 +78,11 @@ $(()=>{
                 // clear previous name, if there    
                 // clear old image, if there
 
-            // clear fields
+            // clear fields, show "Searching"
             $('#alias').html('<span>Alias</span>: <font color=grey>Searching...</font>')
             $('#birthday').html('<span>Birthday</span>: <font color=grey>Searching...</font>')
             $('#first').html('<span>First appeared in the game</span>: <font color=grey>Searching...</font>')
+            $('#games').html('<span>Games</span>: <font color=grey>Searching...</font>')
             $('#objects').html('<span>Related Objects</span>: <font color=grey>Searching...</font>')
             $('#friends').html('<span>Friends</span>: <font color=grey>Searching...</font>')
             $('#enemies').html('<span>Enemies</span>: <font color=grey>Searching...</font>')
@@ -103,7 +104,8 @@ $(()=>{
                 (data)=>{
                     
                     // PROBLEM: Sometimes search loads a non-EXACT MATCH (ex. "bLINKy" instead of "LINK")
-                        // Loop through various names (if more than one match) and filter by EXACT MATCH
+                        // TODO: Loop through various names (if more than one match) and filter by EXACT MATCH
+                        // SOLUTION: use Filter to create array ONLY with exact match of userInput
                         var exactCharacter = data.results.filter(searched => searched.name === userInput);
                         console.log(exactCharacter)
 
@@ -167,9 +169,34 @@ $(()=>{
                         console.log("2ND AJAX:")
                         console.log(data)
 
+                        // clear fields to make space for NEW character's info
+                        $('#games').html('<span class="tooltip">Games</span>: ')
+                            var $tooltip = $('<span>')
+                            $tooltip.addClass('tooltiptext')
+                            $('.tooltip').append($tooltip)
                         $('#objects').html('<span>Related Objects</span>: ')
                         $('#friends').html('<span>Friends</span>: ')
                         $('#enemies').html('<span>Enemies</span>: ')
+
+                        var gamesArray = data.results.games
+                        for (i=0;i<20;i++) {
+                            if (i == 0) {
+                                // grab the text
+                                var gamesLabel = $('#games').html()
+                                // add the text
+                                $('#games').html('<span>' + gamesLabel + '</span>' + data.results.games[i].name)
+                            } else if (i == 19) {
+                                var gamesLabel = $('#games').html()
+                                $('#games').html(gamesLabel + ", " + data.results.games[i].name + "<span class='dotdotdot'>. . .</span>")
+                            } else if (i > 0) {
+                                var gamesLabel = $('#games').html()
+                                $('#games').html(gamesLabel + ", " + data.results.games[i].name)
+                            }
+                        }
+
+                        var gameCount = data.results.games.length
+                        $('.tooltiptext').text(gameCount)
+
 
                         var objectsArray = data.results.objects
                         for (i=0;i<objectsArray.length;i++) {
