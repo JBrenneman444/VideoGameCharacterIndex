@@ -2,9 +2,9 @@
 An index of various video game characters across the gaming universe.
 
 ## User Stories
-- [ ] User should be able to select a character.
-- [ ] User should be able to select view all sorts of information about the selected character.
-- [ ] User should be able to hover over certain items and see "tooltips" CSS
+- [x] User should be able to select a character.
+- [x] User should be able to select view all sorts of information about the selected character.
+- [x] User should be able to hover over certain items and see "tooltips" CSS
 
 ## The Website
 https://jbrenneman444.github.io/VideoGameCharacterIndex/
