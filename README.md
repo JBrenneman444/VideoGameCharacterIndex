@@ -21,7 +21,9 @@ https://www.giantbomb.com/api/game/3030-4725/?api_key=8f5e4fe50eb930447615648aa3
 * Then, did not realize I could command it to come back in JSON form, if I wished.
 
 ## Technologies Used
-To be completed.
+* HTML
+* CSS
+* JS / jQuery
 
 ## Approach Taken
 * First, did a rough wireframe of the VISUAL side of my app.
