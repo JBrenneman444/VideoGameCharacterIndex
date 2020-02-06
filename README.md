@@ -27,5 +27,9 @@ To be completed.
 * First, did a rough wireframe of the VISUAL side of my app.
 * Then, tried to test out initial connection of AJAX data and HTML.
 
-## Unresolved Problems
-To be completed.
+## TODO / Unresolved Items
+* jQuery should append new images for carousel, rather than hard-coding number
+* add "Load more" functionality for games, maybe other fields
+* Set up so user can choose Official Art, Fan Art, etc.
+* if CHARACTER NOT FOUND, add functionality for "no seach found", make sure doesnt mess up the rest of the page
+* figure out how to make name animations smoother, despite AJAX requests
