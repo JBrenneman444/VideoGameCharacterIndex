@@ -1,4 +1,4 @@
-# VideoGameCharacterIndex
+# Gamerdex
 An index of various video game characters across the gaming universe.
 
 ## User Stories
