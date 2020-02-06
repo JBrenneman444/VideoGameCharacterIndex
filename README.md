@@ -30,6 +30,7 @@ https://www.giantbomb.com/api/game/3030-4725/?api_key=8f5e4fe50eb930447615648aa3
 * Then, tried to test out initial connection of AJAX data and HTML.
 
 ## TODO / Unresolved Items
+* Make auto-filling form that updates whenever a user types in new characters
 * jQuery should append new images for carousel, rather than hard-coding number
 * add "Load more" functionality for games, maybe other fields
 * Set up so user can choose Official Art, Fan Art, etc.
