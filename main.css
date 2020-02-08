@@ -1,6 +1,9 @@
 * {
 font-family:monospace;
 /* border: 1px solid goldenrod; */
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
 }
 
 body {

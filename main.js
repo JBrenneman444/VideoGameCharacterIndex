@@ -18,6 +18,7 @@ $(()=>{
             // results.image_tags[7].name --> if I want to pull during 2ndf AJAX
 
             // TODO: Set up so user can choose Official Art, Fan Art, etc.
+            // TODO: Look into why KRYSTAL's (and others) images don't load
 
     var characterImage1
     var characterImage2
@@ -327,14 +328,6 @@ $(()=>{
                                 $('#image10').css("background-size","contain")
                                 $('#image10').css("background-repeat","no-repeat")
                                 $('#image10').css("background-position","center")
-
-                                // no idea why these arent working........
-                                    // $('#image1').attr(`src`,`url(https://www.giantbomb.com/api/image/original/3028428-7282301757-Link_.png
-                                    // )`);
-                                    // $('#image2').attr(`src`,`url(https://www.giantbomb.com/api/image/original/2895225-link%209.png
-                                    // )`);
-                                    // $('#image3').attr(`src`,`url(https://www.giantbomb.com/api/image/original/2895224-link%208.jpg
-                                    // )`);
 
 
                                 },
