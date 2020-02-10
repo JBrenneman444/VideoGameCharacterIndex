@@ -66,6 +66,7 @@ $(()=>{
         if ($('#characterInput').val() !== "") {
 
             $('#artworkCredit').fadeOut(1000)
+            $('#character-display').css('background-image','none')
 
             $('#character-bg').fadeIn(1000).css('display','flex')
 
