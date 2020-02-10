@@ -75,7 +75,7 @@ $(()=>{
 
             var userInput = $('#characterInput').val()
             console.log("User typed: " + userInput)
-
+            
             // TODO: if CHARACTER NOT FOUND, add functionality that:
                 //  says "Character not found","Try another" etc.
                 // clear previous name, if there    
@@ -110,6 +110,20 @@ $(()=>{
                         // TODO: Loop through various names (if more than one match) and filter by EXACT MATCH
                         // SOLUTION: use Filter to create array ONLY with exact match of userInput
                             // convert to LOWER CASE, first, so user cant mess up case
+
+                        // weird case
+
+                        if (userInput[0] === userInput[0].toLowerCase()) {
+                            userInput = userInput.toLowerCase()
+                            .split(' ')
+                            .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+                            .join(' ');
+                            // converts to Title Case
+                        } else {
+                            // do nothing -- leave search as is
+                            console.log("not lowercase")
+                        }
+
                         var exactCharacter = data.results.filter(searched => searched.name === userInput);
                         console.log(exactCharacter)
 
