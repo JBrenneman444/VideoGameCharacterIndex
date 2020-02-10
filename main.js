@@ -110,7 +110,7 @@ $(()=>{
                         // TODO: Loop through various names (if more than one match) and filter by EXACT MATCH
                         // SOLUTION: use Filter to create array ONLY with exact match of userInput
                             // convert to LOWER CASE, first, so user cant mess up case
-                        var exactCharacter = data.results.filter(searched => searched.name.toLowerCase === userInput.toLowerCase);
+                        var exactCharacter = data.results.filter(searched => searched.name === userInput);
                         console.log(exactCharacter)
 
                     // PROBLEM: for some reason, it doesn't fade in properly within AJAX call
