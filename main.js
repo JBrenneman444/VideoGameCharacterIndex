@@ -65,6 +65,8 @@ $(()=>{
 
         if ($('#characterInput').val() !== "") {
 
+            $('#artworkCredit').fadeOut(1000)
+
             $('#character-bg').fadeIn(1000).css('display','flex')
 
             $('.information').fadeIn(2000)
@@ -107,7 +109,8 @@ $(()=>{
                     // PROBLEM: Sometimes search loads a non-EXACT MATCH (ex. "bLINKy" instead of "LINK")
                         // TODO: Loop through various names (if more than one match) and filter by EXACT MATCH
                         // SOLUTION: use Filter to create array ONLY with exact match of userInput
-                        var exactCharacter = data.results.filter(searched => searched.name === userInput);
+                            // convert to LOWER CASE, first, so user cant mess up case
+                        var exactCharacter = data.results.filter(searched => searched.name.toLowerCase === userInput.toLowerCase);
                         console.log(exactCharacter)
 
                     // PROBLEM: for some reason, it doesn't fade in properly within AJAX call

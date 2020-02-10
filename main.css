@@ -1,9 +1,6 @@
 * {
 font-family:monospace;
 /* border: 1px solid goldenrod; */
--webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
 }
 
 body {
@@ -78,6 +75,20 @@ a:active {
     display: flex;
     justify-content: space-around;
     height: 70vh;
+    background-image: url(./img/gifCropped.gif);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+#artworkCredit {
+    color: rgb(104, 104, 104);
+    font-size: 2vh;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #character-bg {
